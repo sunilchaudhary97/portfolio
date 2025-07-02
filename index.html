@@ -1,0 +1,196 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Professional Blockchain developer and cybersecurity expert specializing in creating secure and beautiful digital experiences. Offering services in Blockchain development.">
+  <meta name="keywords" content="Blockchain developer, Blockchain development, Nepal">
+  <meta name="author" content="Sunil Chaudhary">
+  <meta name="robots" content="index, follow">
+  <title>Blockchain Developer & Entrepreneur Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+
+
+<body>
+  <header>
+    <div class="logo">
+     <div class="logo">
+    <img src="images/logo.png" alt="logo">
+  </div>
+  </div>
+    <nav>
+      <a href="#hero">HOME</a>
+      <a href="#skills">SKILLS</a>
+      <a href="#projects">PROJECTS</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+  </header>
+
+  <section id="hero">
+    <h1>Hi Public, I'm <span class="highlight"></span> Sunil Chaudhary</h1>
+    <p>Blockchain Developer & Entrepreneur passionate about building decentralized solutions that empower the future. A punctual and motivated individual who is able to work in a busy environment and produce high standards of work. I am an excellent team worker and am able to take instructions from all levels and build up good working relationships with all colleagues.</p>
+    <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Get In Touch</button>
+  </section>
+
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="skill-list">
+      <div class="skill-item">Solidity</div>
+      <div class="skill-item">Web3.js</div>
+      <div class="skill-item">Node.js</div>
+      <div class="skill-item">React.js</div>
+      <div class="skill-item">Python</div>
+      <div class="skill-item">Blockchain Architecture</div>
+      <div class="skill-item">Entrepreneurship</div>
+      <div class="skill-item">Startups</div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects & Startups</h2>
+    <div class="project-card">
+      <h3>Love Lines - Romantic Messages</h3>
+      <p>Download Love Lines today and express your feelings with beautiful romantic messages, quotes, and poetry. Perfect for Valentine's Day, anniversaries, and showing your love every day. Our curated collection helps you find the perfect words to express your deepest emotions.</p>
+      <a href="https://play.google.com/store/apps/details?id=studio.cosome.lovelines" target="_blank" rel="noopener">Get it on → Google Play</a>
+    </div>
+    <div class="project-card">
+      <h3>DeFi Lending Platform</h3>
+      <p>A decentralized application enabling peer-to-peer lending using Ethereum smart contracts. Implemented collateral management and automated liquidation mechanisms.</p>
+      <a href="https://www.linkedin.com/in/sunil-chaudhary-114801278/" target="_blank" rel="noopener">View Code →</a>
+    </div>
+    x
+    
+  </section>
+
+  <section id="contact">
+    
+    <h3>CONTACT</h3>
+    <p>We can't wait to hear from you! If you have a particular inquiry or request. I am on the lookout for any potential position in the Web3 fraternity.
+Feel free to reach out using the contact details below, and one of our team members will get back to you shortly.</p>
+    <h3>Connect With Me And let's talk</h3>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/sunil-chaudhary-114801278/" target="_blank" rel="noopener">
+        <div class="tooltip">LinkedIn</div>
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="https://github.com/sunilchaudhary97" target="_blank" rel="noopener">
+        <div class="tooltip">GitHub</div>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <form id="contact-form" aria-label="Contact form">
+      <div class="form-group">
+        <label for="name" class="visually-hidden">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+      </div>
+      <div class="form-group">
+        <label for="email" class="visually-hidden">Your Email</label>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+      </div>
+      <div class="form-group">
+        <label for="subject" class="visually-hidden">Subject</label>
+        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+      </div>
+      <div class="form-group">
+        <label for="message" class="visually-hidden">Your Message</label>
+        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+  </section>
+
+  <section id="Get In Touch">
+   <h2>Get In Touch</h2>
+
+   <div class="map-container">
+       <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14130.321891256307!2d85.34205!3d27.69152!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1995c4d0cb1f%3A0x2e4e3dce3f6d2083!2sNew%20Baneshwor%2C%20Kathmandu%2C%20Nepal!5e0!3m2!1sen!2snp!4v1719689000000!5m2!1sen!2snp" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</section>
+
+  <footer>
+    © 2025 Sunil Chaudhary - Blockchain Developer & Entrepreneur
+  </footer>
+
+  <script>
+    // Smooth scroll to contact section
+    function scrollToContact() {
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Form submission handling
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = e.target.name.value.trim();
+      const email = e.target.email.value.trim();
+      const subject = e.target.subject.value.trim();
+      const message = e.target.message.value.trim();
+
+      if (!name || !email || !subject || !message) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      alert(`Thank you for reaching out, ${name}! I'll get back to you shortly.`);
+      e.target.reset();
+    });
+
+    // Highlight animation logic
+    const highlightSpan = document.querySelector('.highlight');
+    const titles = ["👨‍💻 Blockchain Developer", "🚀 Web3 Innovator", "💡 Startup Builder"];
+    let index = 0;
+    setInterval(() => {
+      highlightSpan.textContent = titles[index];
+      index = (index + 1) % titles.length;
+    }, 3000);
+  </script>
+</body>
+</html>
