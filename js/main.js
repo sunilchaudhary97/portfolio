@@ -805,4 +805,35 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
- 
+ // workers-site/index.js (Your Cloudflare Worker)
+
+addEventListener('fetch', event => {
+  event.respondWith(handleRequest(event.request));
+});
+
+async function handleRequest(request) {
+  const url = new URL(request.url);
+  const clientIP = request.headers.get('CF-Connecting-IP');
+  const restrictedPath = '/admin'; // Example restricted path
+
+  // Simulate logging suspicious activity to an external service
+  // In a real scenario, you might send this to Splunk, Datadog, your own API endpoint, etc.
+  if (url.pathname.startsWith(restrictedPath)) {
+    console.log([ALERT] Unauthorized access attempt to ${restrictedPath} from IP: ${clientIP});
+
+    // You could store this in a Cloudflare KV namespace for persistence,
+    // or send it to a webhook. For simplicity, we'll just log here.
+    // Example for KV: await MY_KV_NAMESPACE.put(attempt:${clientIP}:${Date.now()}, url.pathname);
+
+    // Optionally, return a temporary 403 Forbidden
+    return new Response('Access to this section is restricted.', { status: 403 });
+  }
+
+  // If not a restricted path, or if you want to allow it after logging,
+  // simply fetch the origin
+  return fetch(request);
+}
+
+// Note: For actual automated blocking, you'd need a robust logging/alerting system
+// that your external script can query or listen to. Cloudflare Logs,
+// Workers Analytics Engine, or a custom webhook would be ideal.
