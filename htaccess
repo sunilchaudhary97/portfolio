@@ -6,8 +6,8 @@ RewriteCond %{HTTPS} !=on
 RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
 # Redirect www to non-www (or vice versa - choose one)
-RewriteCond %{HTTP_HOST} ^www\.sewakunja\.com [NC]
-RewriteRule ^(.*)$ https://sewakunja.com/$1 [L,R=301]
+RewriteCond %{HTTP_HOST} ^www\.sunilchaudhary3\.com.np [NC]
+RewriteRule ^(.*)$ https://sunilchaudhary3.com.np/$1 [L,R=301]
 
 # Prevent directory browsing
 Options -Indexes
