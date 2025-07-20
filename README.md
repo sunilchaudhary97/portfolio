@@ -31,19 +31,20 @@ This portfolio isn't just a collection of projects — it's a digital representa
 
 ### 📁 Project Structure
 
-*/
-├── index.html              # Homepage
-├── portfolio.html          # Portfolio and case studies
-├── contact.html            # Contact information and form
-├── css/
-│   ├── styles.css          # Main stylesheet
-│   ├── portfolio.css       # Portfolio-specific styles
-│   ├── contact.css         # Contact page styles
-├── js/
-│   ├── main.js             # Main JavaScript functionality
-│   ├── animation.js        # Animation effects scripts
-│   └── portfolio-showcase.js # Portfolio-specific scripts
-└── images/                 # Image assets
+/ 
+
+(```)├── index.html              # Homepage
+(```)├── portfolio.html          # Portfolio and case studies
+(```)├── contact.html            # Contact information and form
+(```)├── css/
+(```)│   ├── styles.css          # Main stylesheet
+(```)│   ├── portfolio.css       # Portfolio-specific styles
+(```)│   ├── contact.css         # Contact page styles
+(```)├── js/
+(```)│   ├── main.js             # Main JavaScript functionality
+(```)│   ├── animation.js        # Animation effects scripts
+(```)│   └── portfolio-showcase.js # Portfolio-specific scripts
+(```)└── images /                 # Image assets
 
 ### 🛠️ Technologies Used
 * HTML5: Semantic markup for better structure and accessibility
