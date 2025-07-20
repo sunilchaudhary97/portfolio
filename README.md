@@ -1,10 +1,10 @@
-#Portfolio
+# Portfolio
 
 
 I am flexible, reliable and possess excellent time keeping skills.
 This portfolio isn't just a collection of projects — it's a digital representation of my passion for blockchain development, entrepreneurship, and lifelong learning. From smart contract experiments to problem-solving projects and UI design trials, every section of the site tells a piece of my story as a tech enthusiast driven by curiosity and ambition.
 
-📋 Table of Contents
+## 📋 Table of Contents
 Features
 Project Structure
 Technologies Used
@@ -16,7 +16,7 @@ Browser Compatibility
 License
 Contact
 
-✨ Features
+### ✨ Features
 Responsive Design: Mobile-first approach ensuring optimal experience across all devices
 Case Study Showcase: In-depth portfolio case studies with detailed project information
 Dark Theme: Modern dark UI with accent colors for improved readability
@@ -27,7 +27,9 @@ SEO Optimized: Comprehensive meta tags and structured data for better search ran
 Performance Optimized: Lazy loading images and efficient asset delivery
 Cookie Consent: GDPR-compliant cookie consent implementation
 Accessibility Features: Improved navigation for screen readers and keyboard users
-📁 Project Structure
+
+
+### 📁 Project Structure
 /
 ├── index.html              # Homepage
 ├── portfolio.html          # Portfolio and case studies
@@ -41,7 +43,8 @@ Accessibility Features: Improved navigation for screen readers and keyboard user
 │   ├── animation.js        # Animation effects scripts
 │   └── portfolio-showcase.js # Portfolio-specific scripts
 └── images/                 # Image assets
-🛠️ Technologies Used
+
+### 🛠️ Technologies Used
 HTML5: Semantic markup for better structure and accessibility
 CSS3: Modern styling with flexbox and grid layouts
 JavaScript: ES6+ for interactive elements and functionality
@@ -49,7 +52,8 @@ Font Awesome: Icon library for visual elements
 Google Fonts: Web fonts for typography (Poppins, Roboto)
 Schema.org: Structured data for SEO optimization
 jQuery: JavaScript library for DOM manipulation
-🚀 Getting Started
+
+### 🚀 Getting Started
 Prerequisites
 A modern web browser
 Basic knowledge of HTML, CSS, and JavaScript (for customization)
@@ -73,7 +77,9 @@ GitHub Pages
 Netlify
 Vercel
 Any traditional web hosting service
-🎨 Customization
+
+
+### 🎨 Customization
 Personal Information
 Update your personal information across all HTML files:
 
@@ -104,7 +110,7 @@ Results and metrics
 Modify
 
 
-📊 SEO Implementation
+### 📊 SEO Implementation
 The website includes extensive SEO optimizations:
 
 Meta Tags: Title, description, and keyword metadata
@@ -114,7 +120,8 @@ Twitter Cards: For Twitter sharing
 Canonical Links: To prevent duplicate content issues
 Semantic HTML: Proper use of headings and document structure
 XML Sitemap: For improved search engine crawling (generate one when deploying)
-⚡ Performance Optimization
+
+### ⚡ Performance Optimization
 To maintain fast loading times:
 
 Optimize images (compress further if needed)
@@ -123,7 +130,7 @@ Minify CSS and JavaScript files for production
 Use a CDN for faster asset delivery
 Maintain proper image dimensions and use responsive images
 
-🌐 Browser Compatibility
+### 🌐 Browser Compatibility
 The website is tested and compatible with:
 
 Google Chrome (latest)
@@ -132,7 +139,7 @@ Safari (latest)
 Microsoft Edge (latest)
 Mobile browsers (Android Chrome)
 
-📞 Contact
+### 📞 Contact
 For questions or customization requests, contact:
 
 Email: sunilchaudhary9742@gmail.com
